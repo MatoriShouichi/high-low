@@ -27,6 +27,9 @@ Route::get('/highscore', 'HighscoreController@add');
 
 Route::get('/game', 'GameController@add');
 
+Route::post('/game/judge', 'JudgeController@add');
+
+Route::get('/game/judge/gameover', 'GameoverController@add');
 
 
 Auth::routes();
