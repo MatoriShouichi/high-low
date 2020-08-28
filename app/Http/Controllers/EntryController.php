@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GameoverController extends Controller
+class EntryController extends Controller
 {
     //
     public function add(Request $request)
     {
-        return view('gameover', 'score'=>$request->score);
+        return view('entry', ['score' => $request->score]);
     }
 }

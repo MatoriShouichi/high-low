@@ -29,8 +29,9 @@ Route::get('/game', 'GameController@add');
 
 Route::post('/game/judge', 'JudgeController@add');
 
-Route::get('/game/judge/gameover', 'GameoverController@add');
+Route::get('/game/gameover', 'GameoverController@add');
 
+Route::get('/game/gameover/entry', 'EntryController@add')->name('entry');
 
 Auth::routes();
 

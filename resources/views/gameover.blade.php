@@ -7,7 +7,11 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ゲームオーバー</h2>
-                <a href="{{ url('/') }}">タイトル画面</a>
+                <p>score</p>
+                <p>{{ $score }}</p>
+                <p>スコア登録しますか?</p>
+                <a href="{{ url('/game/gameover/entry', ['score' => $score]) }}">ハイ</a>
+                <a href="{{ url('/') }}">いいえ</a>
             </div>
         </div>
     </div>

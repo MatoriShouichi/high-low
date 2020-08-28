@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class JudgeController extends Controller
 {
     //
-    public function add(Request $request)
+public function add(Request $request)
     {
         
         if($request->mynum > $request->cpunum && $request->decision == "high"){
@@ -28,7 +28,7 @@ class JudgeController extends Controller
             $judge = "不正解";
             $request->life--;
             if($request->life == 0){
-                return view('gameover');
+                return redirect (route('entry', ['score' => $request->score]));
             }else{
                 return view('judge', ['score' => $request->score, 'life' => $request->life, 'mynum' => $request->mynum, 'cpunum' => $request->cpunum, 'decision' => $request->decision, 'highlow' => $highlow, 'judge' => $judge]);
             }
@@ -38,7 +38,7 @@ class JudgeController extends Controller
             $judge = "不正解";
             $request->life--;
             if($request->life == 0){
-                return view('gameover');
+                return redirect (route('entry', ['score' => $request->score]));
             }else{
                 return view('judge', ['score' => $request->score, 'life' => $request->life, 'mynum' => $request->mynum, 'cpunum' => $request->cpunum, 'decision' => $request->decision, 'highlow' => $highlow, 'judge' => $judge]);
             }
