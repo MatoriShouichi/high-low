@@ -21,7 +21,7 @@
                 <p>{{ $highlow }}</p>
                 <p>判定</p>
                 <p>{{ $judge }}</p>
-                <a href="{{ action('GameController@add', ['score' => $score, 'life' => $life]) }}">次へ</a>
+                <a href="{{ action('GameController@game_add', ['score' => $score, 'life' => $life]) }}">次へ</a>
             </div>
         </div>
     </div>

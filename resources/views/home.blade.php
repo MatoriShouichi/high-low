@@ -17,6 +17,7 @@
                     You are logged in!
                 </div>
             </div>
+            <a href="{{ url('/') }}">タイトルへ戻る</a>
         </div>
     </div>
 </div>

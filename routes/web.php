@@ -19,19 +19,19 @@ Route::get('/', function () {
 
 Route::get('/admin', 'Admin\AdminController@add')->middleware('auth');
 
-Route::get('/', 'TitleController@add');
+Route::get('/', 'GameController@title_add');
 
-Route::get('/howto', 'HowtoController@add');
+Route::get('/howto', 'GameController@howto_add');
 
-Route::get('/highscore', 'HighscoreController@add');
+Route::get('/highscore', 'GameController@hiscore_add');
 
-Route::get('/game', 'GameController@add');
+Route::get('/game', 'GameController@game_add');
 
-Route::post('/game/judge', 'JudgeController@add');
+Route::post('/game/judge', 'GameController@judge');
 
-Route::get('/game/gameover', 'GameoverController@add');
+Route::get('/game/gameover', 'GameController@gameover_add')->name('gameover');
 
-Route::get('/game/gameover/entry', 'EntryController@add')->name('entry');
+Route::get('/game/gameover/entry', 'GameController@entry_add')->name('entry');
 
 Auth::routes();
 

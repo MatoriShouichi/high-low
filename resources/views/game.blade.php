@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <form action="{{ action('JudgeController@add') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('GameController@judge') }}" method="post" enctype="multipart/form-data">
                     <h2>ゲーム画面</h2>
                     <p>現在のスコア</p>
                     <p>{{ $score }}</p>

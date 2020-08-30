@@ -10,7 +10,7 @@
                 <p>score</p>
                 <p>{{ $score }}</p>
                 <p>スコア登録しますか?</p>
-                <a href="{{ url('/game/gameover/entry', ['score' => $score]) }}">ハイ</a>
+                <a href="{{ action('GameController@entry_add', ['score' => $score]) }}">ハイ</a>
                 <a href="{{ url('/') }}">いいえ</a>
             </div>
         </div>
