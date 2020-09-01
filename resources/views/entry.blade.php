@@ -6,9 +6,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>スコアエントリー</h2>
-                <p>score</p>
-                <p>{{ $score }}</p>
+                <form action="{{ action('GameController@entry_create') }}" method="post" enctype="multipart/form-data">
+                    <h2>スコアエントリー</h2>
+                    <p>score</p>
+                    <p>{{ $score }}</p>
+                    <input type="hidden" name="score" value="{{ $score }}">
+                    <p>name</p>
+                    <p>{{ $name }}</p>
+                    <input type="hidden" name="name" value="{{ $name }}">
+                    <p>comment</p>
+                    <div>
+                        <input type="text" name="comment">
+                    </div>
+                    <input type="submit" value="登録">
+                    {{ csrf_field() }}
+                </form>
                 <a href="{{ url('/') }}">タイトル画面へ</a>
             </div>
         </div>

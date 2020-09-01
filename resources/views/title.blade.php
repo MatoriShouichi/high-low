@@ -10,6 +10,7 @@
                 <a href="{{ url('/game') }}">ゲーム開始</a>
                 <a href="{{ url('/howto') }}">説明</a>
                 <a href="{{ url('/highscore') }}">ハイスコア</a>
+                <a href="{{ url('/myscore') }}">マイスコア</a>
             </div>
         </div>
     </div>

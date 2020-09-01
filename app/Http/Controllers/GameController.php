@@ -15,7 +15,7 @@ class GameController extends Controller
             $life = $request->life;
         }else{
             $score = 0;
-            $life = 3;
+            $life = 1;
         }
         $mynum = mt_rand(1,10);
         $cpunum = mt_rand(1,10);
@@ -41,6 +41,12 @@ class GameController extends Controller
         return view('highscore');
     }
     
+    //マイスコア表示
+    public function myscore_add()
+    {
+        return view('myscore');
+    }
+    
     //ゲームオーバー用表示
     public function gameover_add(Request $request)
     {
@@ -50,7 +56,14 @@ class GameController extends Controller
     //エントリー画面用表示
     public function entry_add(Request $request)
     {
-        return view ('entry', ['score' => $request->score]);
+        $user = \Auth::user();
+        return view ('entry', ['score' => $request->score,'name' => $user->name]);
+    }
+    
+    //スコア登録アクション
+    public function entry_create(Request $request)
+    {
+        return view ('entry_end');
     }
     
         //ジャッジ用アクション

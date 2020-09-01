@@ -9,9 +9,15 @@
                 <h2>ゲームオーバー</h2>
                 <p>score</p>
                 <p>{{ $score }}</p>
-                <p>スコア登録しますか?</p>
-                <a href="{{ action('GameController@entry_add', ['score' => $score]) }}">ハイ</a>
-                <a href="{{ url('/') }}">いいえ</a>
+                @guest
+                    {{-- ログインしていなかったらタイトルへのリンクのみ --}}
+                    <a href="{{ url('/') }}">タイトル画面へ</a>
+                @else
+                    {{-- ログインしていたらスコア登録するかしないか --}}
+                    <p>スコア登録しますか?</p>
+                    <a href="{{ action('GameController@entry_add', ['score' => $score]) }}">ハイ</a>
+                    <a href="{{ url('/') }}">いいえ</a>
+                @endguest
             </div>
         </div>
     </div>

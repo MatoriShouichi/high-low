@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 
-@section('title', 'highscore')
+@section('title', 'スコア登録完了')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>High score画面</h2>
+                <h2>スコア登録完了</h2>
                 <a href="{{ url('/') }}">タイトルへ戻る</a>
             </div>
         </div>

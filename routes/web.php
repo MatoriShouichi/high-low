@@ -25,6 +25,8 @@ Route::get('/howto', 'GameController@howto_add');
 
 Route::get('/highscore', 'GameController@hiscore_add');
 
+Route::get('/myscore', 'GameController@myscore_add');
+
 Route::get('/game', 'GameController@game_add');
 
 Route::post('/game/judge', 'GameController@judge');
@@ -32,6 +34,8 @@ Route::post('/game/judge', 'GameController@judge');
 Route::get('/game/gameover', 'GameController@gameover_add')->name('gameover');
 
 Route::get('/game/gameover/entry', 'GameController@entry_add')->name('entry');
+
+Route::post('/game/gameover/entry/entry_end', 'GameController@entry_create');
 
 Auth::routes();
 
