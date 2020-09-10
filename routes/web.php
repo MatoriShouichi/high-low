@@ -35,7 +35,7 @@ Route::get('/game/gameover', 'GameController@gameover_add')->name('gameover');
 
 Route::get('/game/gameover/entry', 'GameController@entry_add')->name('entry');
 
-Route::post('/game/gameover/entry/entry_end', 'GameController@entry_create');
+Route::post('/game/gameover/entry/entry_end', 'GameController@create');
 
 Auth::routes();
 

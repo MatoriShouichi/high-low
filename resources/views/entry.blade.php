@@ -6,14 +6,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <form action="{{ action('GameController@entry_create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('GameController@create') }}" method="post" enctype="multipart/form-data">
                     <h2>スコアエントリー</h2>
                     <p>score</p>
                     <p>{{ $score }}</p>
                     <input type="hidden" name="score" value="{{ $score }}">
                     <p>name</p>
                     <p>{{ $name }}</p>
-                    <input type="hidden" name="name" value="{{ $name }}">
+                    <input type="hidden" name="user_id" value="{{ $user_id }}">
                     <p>comment</p>
                     <div>
                         <input type="text" name="comment">

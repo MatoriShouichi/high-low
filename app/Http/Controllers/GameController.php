@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Score;
 
 class GameController extends Controller
 {
@@ -36,15 +38,24 @@ class GameController extends Controller
     }
     
     //ハイスコア表示
-    public function hiscore_add()
+    public function hiscore_add(Request $request)
     {
-        return view('highscore');
+        $score = Score::select()
+        ->join('users', 'scores.user_id','=','users.id')
+        ->orderBy('score', 'DESC')
+        ->take(10)
+        ->get();
+        return view('highscore', ['score' => $score]);
     }
     
     //マイスコア表示
     public function myscore_add()
     {
-        return view('myscore');
+        $user = \Auth::user();
+        $score = Score::select()
+        ->where('user_id', $user->id)
+        ->get();
+        return view('myscore', ['score' => $score]);
     }
     
     //ゲームオーバー用表示
@@ -57,12 +68,21 @@ class GameController extends Controller
     public function entry_add(Request $request)
     {
         $user = \Auth::user();
-        return view ('entry', ['score' => $request->score,'name' => $user->name]);
+        return view ('entry', ['score' => $request->score,'name' => $user->name, 'user_id' => $user->id]);
     }
     
     //スコア登録アクション
-    public function entry_create(Request $request)
+    public function create(Request $request)
     {
+        $this->validate($request, Score::$rules);
+        
+        $score = new Score;
+        $form = $request->all();
+        unset($form['_token']);
+        
+        $score->fill($form);
+        $score->save();
+        
         return view ('entry_end');
     }
     
