@@ -22,6 +22,14 @@ class GameController extends Controller
         $mynum = mt_rand(1,10);
         $cpunum = mt_rand(1,10);
         
+        while($mynum == $cpunum){
+            if($mynum != $cpunum){
+                break;
+            }
+            $mynum = mt_rand(1,10);
+            $cpunum = mt_rand(1,10);
+        }
+        
         return view('game', ['score' => $score, 'life' => $life, 'mynum' => $mynum, 'cpunum' => $cpunum]);
     }
     
